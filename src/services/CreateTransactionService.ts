@@ -1,11 +1,8 @@
-// import AppError from '../errors/AppError';
+// import AppError from './../errors/AppError';
+import Transaction from './../models/Transaction'
 
-import Transaction from '../models/Transaction';
-
-class CreateTransactionService {
+export default class CreateTransactionService {
   public async execute(): Promise<Transaction> {
     // TODO
   }
 }
-
-export default CreateTransactionService;

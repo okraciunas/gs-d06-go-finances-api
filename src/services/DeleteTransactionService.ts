@@ -1,9 +1,7 @@
-// import AppError from '../errors/AppError';
+// import AppError from './../errors/AppError';
 
-class DeleteTransactionService {
+export default class DeleteTransactionService {
   public async execute(): Promise<void> {
     // TODO
   }
 }
-
-export default DeleteTransactionService;
