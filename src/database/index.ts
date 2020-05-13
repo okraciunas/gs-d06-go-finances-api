@@ -1,5 +1,10 @@
 import { createConnection, getConnectionOptions, Connection } from 'typeorm'
 
+export enum Tables {
+  Transactions = 'transactions',
+  Categories = 'categories',
+}
+
 export default async (name = 'default'): Promise<Connection> => {
   const defaultOptions = await getConnectionOptions()
 
