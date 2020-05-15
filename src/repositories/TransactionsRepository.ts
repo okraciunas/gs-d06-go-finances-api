@@ -10,7 +10,7 @@ interface Balance {
 
 @EntityRepository(Transaction)
 export default class TransactionsRepository extends Repository<Transaction> {
-  public async getBalance(transactions: Transaction[]): Promise<Balance> {
+  public getBalance(transactions: Transaction[]): Balance {
     return transactions.reduce(
       (balance: Balance, transaction: Transaction) => {
         let { income, outcome } = balance
@@ -22,10 +22,13 @@ export default class TransactionsRepository extends Repository<Transaction> {
           outcome += value
         }
 
+        const total =
+          Math.round((income - outcome + Number.EPSILON) * 100) / 100
+
         return {
           income,
           outcome,
-          total: income - outcome,
+          total,
         }
       },
       { income: 0, outcome: 0, total: 0 },
