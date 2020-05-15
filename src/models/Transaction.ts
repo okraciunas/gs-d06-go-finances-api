@@ -30,7 +30,7 @@ export default class Transaction {
   @Column()
   value: number
 
-  @Column()
+  @Column({ select: false })
   category_id: string
 
   @ManyToOne(() => Category)

@@ -10,7 +10,7 @@ const router = Router()
 
 router.get('/', async (request, response) => {
   const repository = getCustomRepository(TransactionsRepository)
-  const transactions = await repository.find()
+  const transactions = await repository.find({ relations: ['category'] })
   const balance = await repository.getBalance(transactions)
 
   return response.json({ transactions, balance })
