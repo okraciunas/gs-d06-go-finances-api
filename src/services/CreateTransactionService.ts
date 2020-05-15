@@ -6,7 +6,7 @@ import CreateCategoryService from './CreateCategoryService'
 import TransactionsRepository from './../repositories/TransactionsRepository'
 import Transaction, { TransactionType } from './../models/Transaction'
 
-// import AppError from './../errors/AppError';
+import AppError from './../errors/AppError'
 
 interface Request {
   title: string
@@ -22,13 +22,19 @@ export default class CreateTransactionService {
     type,
     categoryTitle,
   }: Request): Promise<Transaction> {
+    const repository = getCustomRepository(TransactionsRepository)
+    const transactions = await repository.find()
+    const { total } = repository.getBalance(transactions)
+
+    if (type === TransactionType.Outcome && value > total) {
+      throw new AppError('It is not possible to create a outcome transaction.')
+    }
+
     let category = await this.findCategory(categoryTitle)
 
     if (!category) {
       category = await this.createCategory(categoryTitle)
     }
-
-    const repository = getCustomRepository(TransactionsRepository)
 
     const transaction = repository.create({
       title,
