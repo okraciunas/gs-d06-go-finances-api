@@ -29,7 +29,11 @@ export default class CreateTransactionsTable1589325004986
           },
           {
             name: 'value',
-            type: 'numeric',
+            type: 'double precision',
+          },
+          {
+            name: 'type',
+            type: 'varchar',
           },
           {
             name: 'category_id',
