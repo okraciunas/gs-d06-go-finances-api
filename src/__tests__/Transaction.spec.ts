@@ -6,7 +6,7 @@ import createConnection from '../database'
 import Transaction from '../models/Transaction'
 import Category from '../models/Category'
 
-import app from './../app'
+import app from '../app'
 
 let connection: Connection
 
