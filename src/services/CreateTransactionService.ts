@@ -8,7 +8,7 @@ import Transaction, { TransactionType } from './../models/Transaction'
 
 import AppError from './../errors/AppError'
 
-interface Request {
+export interface TransactionRequest {
   title: string
   value: number
   type: TransactionType
@@ -21,7 +21,7 @@ export default class CreateTransactionService {
     value,
     type,
     categoryTitle,
-  }: Request): Promise<Transaction> {
+  }: TransactionRequest): Promise<Transaction> {
     const repository = getCustomRepository(TransactionsRepository)
     const transactions = await repository.find()
     const { total } = repository.getBalance(transactions)
