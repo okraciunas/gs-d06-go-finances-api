@@ -77,7 +77,7 @@ router.delete('/:id', async (request, response) => {
   return response.status(204).send()
 })
 
-router.post('/import', upload.single('csv'), async (request, response) => {
+router.post('/import', upload.single('file'), async (request, response) => {
   const { originalname: csvFileName } = request.file
 
   const importCSVTransactions = new ImportTransactionsService()
