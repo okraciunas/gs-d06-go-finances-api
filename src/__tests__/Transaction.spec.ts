@@ -202,7 +202,7 @@ describe('Transaction', () => {
 
     const importCSV = path.resolve(__dirname, 'import_template.csv')
 
-    await request(app).post('/transactions/import').attach('file', importCSV)
+    await request(app).post('/transactions/import').attach('csv', importCSV)
 
     const transactions = await transactionsRepository.find()
     const categories = await categoriesRepository.find()
