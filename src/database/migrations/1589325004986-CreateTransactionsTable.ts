@@ -5,7 +5,7 @@ import {
   TableForeignKey,
 } from 'typeorm'
 
-import { Tables } from './../'
+import { Tables } from './../../config/Tables'
 
 export default class CreateTransactionsTable1589325004986
   implements MigrationInterface {

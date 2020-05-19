@@ -8,7 +8,7 @@ import {
   JoinColumn,
 } from 'typeorm'
 
-import { Tables } from './../database'
+import { Tables } from './../config/Tables'
 import Category from './Category'
 
 export enum TransactionType {

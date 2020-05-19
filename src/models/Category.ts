@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm'
 
-import { Tables } from './../database'
+import { Tables } from './../config/Tables'
 
 @Entity(Tables.Categories)
 export default class Category {

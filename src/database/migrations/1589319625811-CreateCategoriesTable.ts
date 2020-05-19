@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-import { Tables } from './../'
+import { Tables } from './../../config/Tables'
 
 export default class CreateCategoriesTable1589319625811
   implements MigrationInterface {
