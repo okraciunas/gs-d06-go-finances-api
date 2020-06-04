@@ -50,7 +50,7 @@ const createMultipleTransactions = async (
 
 router.get('/', async (request, response) => {
   const repository = getCustomRepository(TransactionsRepository)
-  const transactions = await repository.find({ relations: ['category'] })
+  const transactions = await repository.find()
   const balance = repository.getBalance(transactions)
 
   return response.json({ transactions, balance })
